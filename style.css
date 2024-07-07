@@ -26,3 +26,7 @@ input {
     color: white;
     border-radius: 5px;
 }
+
+.correct {
+    background-color: hsl(120, 98%, 39%);
+}

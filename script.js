@@ -35,12 +35,26 @@ let guesses = 0;
 const solution = 'saute';
 
 function checkGuess() {
-    const guessInput = document.getElementById('guess-input').value;
-    const guessArray = guessInput.split('');
+    const guessInput = document.getElementById('guess-input');
+    const guessArray = guessInput.value.split('');
     const solutionArray = solution.split('');
-    for (let i = 0; i < guessArray.length; i++) {
-    
+    console.log(guessInput.value);
+    console.log(guesses);
+
+    if (guessInput.value === solution) {
+        if (guesses === 1) {
+            box1.classList.add('correct');
+            box2.classList.add('correct');
+            box3.classList.add('correct');
+            box4.classList.add('correct');
+            box5.classList.add('correct');
+            document.getElementById('guess-input').value = '';
+            return;
+        }
     }
+    // for (let i = 0; i < guessArray.length; i++) {
+    
+    // }
 }
 
 function appendGuess() {
@@ -54,9 +68,8 @@ function appendGuess() {
         box3.innerText = guessArray[2];
         box4.innerText = guessArray[3];
         box5.innerText = guessArray[4];
-        guessInput = '';
+        checkGuess();
         return;
     }
-
 
 }
