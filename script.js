@@ -108,9 +108,9 @@ function checkGuess() {
 }
 
 //Proof of concept for double letter protection
-if (box3.innerText.includes('S')) { 
-    console.log('It works')
-}
+// if (box3.innerText.includes('S')) { 
+//     console.log('It works')
+// }
 
 function displayYellows(index) {
     if (guesses === 1) {
@@ -384,6 +384,7 @@ function appendGuess() {
         box29.innerText = guessArray[3];
         box30.innerText = guessArray[4];
         checkGuess();
+        guessBtn.setAttribute('disabled', '');
         return;
     }
 
