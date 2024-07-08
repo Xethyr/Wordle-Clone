@@ -29,63 +29,58 @@ const box27 = document.getElementById('letter-27');
 const box28 = document.getElementById('letter-28');
 const box29 = document.getElementById('letter-29');
 const box30 = document.getElementById('letter-30');
+const row1 = document.querySelectorAll('row1');
+const row2 = document.querySelectorAll('row2');
+const row3 = document.querySelectorAll('row3');
+const row4 = document.querySelectorAll('row4');
+const row5 = document.querySelectorAll('row5');
+const row6 = document.querySelectorAll('row6');
 
 let guesses = 0;
 
 const solution = 'saute';
 
 function winGame() {
+    guessBtn.setAttribute('disabled', '');
     if (guesses === 1) {
-        box1.classList.add('correct');
-        box2.classList.add('correct');
-        box3.classList.add('correct');
-        box4.classList.add('correct');
-        box5.classList.add('correct');
+        row1.forEach((box) => {
+            box.classList.add('correct');
+        })
         document.getElementById('guess-input').value = '';
         return;
     }
     if (guesses === 2) {
-        box6.classList.add('correct');
-        box7.classList.add('correct');
-        box8.classList.add('correct');
-        box9.classList.add('correct');
-        box10.classList.add('correct');
+        row2.forEach((box) => {
+            box.classList.add('correct');
+        })
         document.getElementById('guess-input').value = '';
         return;
     }
     if (guesses === 3) {
-        box11.classList.add('correct');
-        box12.classList.add('correct');
-        box13.classList.add('correct');
-        box14.classList.add('correct');
-        box15.classList.add('correct');
+        row3.forEach((box) => {
+            box.classList.add('correct');
+        })
         document.getElementById('guess-input').value = '';
         return;
     }
     if (guesses === 4) {
-        box16.classList.add('correct');
-        box17.classList.add('correct');
-        box18.classList.add('correct');
-        box19.classList.add('correct');
-        box20.classList.add('correct');
+        row4.forEach((box) => {
+            box.classList.add('correct');
+        })
         document.getElementById('guess-input').value = '';
         return;
     }
     if (guesses === 5) {
-        box21.classList.add('correct');
-        box22.classList.add('correct');
-        box23.classList.add('correct');
-        box24.classList.add('correct');
-        box25.classList.add('correct');
+        row5.forEach((box) => {
+            box.classList.add('correct');
+        })
         document.getElementById('guess-input').value = '';
         return;
     }
     if (guesses === 6) {
-        box26.classList.add('correct');
-        box27.classList.add('correct');
-        box28.classList.add('correct');
-        box29.classList.add('correct');
-        box30.classList.add('correct');
+        row6.forEach((box) => {
+            box.classList.add('correct');
+        })
         document.getElementById('guess-input').value = '';
         return;
     }
@@ -105,11 +100,121 @@ function checkGuess() {
             displayGreens(i);
         }
     }
+    for (let i = 0; i < guessArray.length; i++) {
+        if(solution.includes(guessArray[i])) {
+            displayYellows(i);
+        }
+    }
 }
 
-//Proof of concept for preventing green and yellow backgrounds from overlapping
-if (box1.classList.contains('card')) { 
+//Proof of concept for double letter protection
+if (box3.innerText.includes('S')) { 
     console.log('It works')
+}
+
+function displayYellows(index) {
+    if (guesses === 1) {
+        if (index === 0 && !box1.classList.contains('correct')) {
+            box1.classList.add('contains');
+        }
+        if (index === 1 && !box2.classList.contains('correct')) {
+            box2.classList.add('contains');
+        }
+        if (index === 2 && !box3.classList.contains('correct')) {
+            box3.classList.add('contains');
+        }
+        if (index === 3 && !box4.classList.contains('correct')) {
+            box4.classList.add('contains');
+        }
+        if (index === 4 && !box5.classList.contains('correct')) {
+            box5.classList.add('contains');
+        }
+    }
+    if (guesses === 2) {
+        if (index === 0 && !box6.classList.contains('correct')) {
+            box6.classList.add('contains');
+        }
+        if (index === 1 && !box7.classList.contains('correct')) {
+            box7.classList.add('contains');
+        }
+        if (index === 2 && !box8.classList.contains('correct')) {
+            box8.classList.add('contains');
+        }
+        if (index === 3 && !box9.classList.contains('correct')) {
+            box9.classList.add('contains');
+        }
+        if (index === 4 && !box10.classList.contains('correct')) {
+            box10.classList.add('contains');
+        }
+    }
+    if (guesses === 3) {
+        if (index === 0 && !box11.classList.contains('correct')) {
+            box11.classList.add('contains');
+        }
+        if (index === 1 && !box12.classList.contains('correct')) {
+            box12.classList.add('contains');
+        }
+        if (index === 2 && !box13.classList.contains('correct')) {
+            box13.classList.add('contains');
+        }
+        if (index === 3 && !box14.classList.contains('correct')) {
+            box14.classList.add('contains');
+        }
+        if (index === 4 && !box15.classList.contains('correct')) {
+            box15.classList.add('contains');
+        }
+    }
+    if (guesses === 4) {
+        if (index === 0 && !box16.classList.contains('correct')) {
+            box16.classList.add('contains');
+        }
+        if (index === 1 && !box17.classList.contains('correct')) {
+            box17.classList.add('contains');
+        }
+        if (index === 2 && !box18.classList.contains('correct')) {
+            box18.classList.add('contains');
+        }
+        if (index === 3 && !box19.classList.contains('correct')) {
+            box19.classList.add('contains');
+        }
+        if (index === 4 && !box20.classList.contains('correct')) {
+            box20.classList.add('contains');
+        }
+    }
+    if (guesses === 5) {
+        if (index === 0 && !box21.classList.contains('correct')) {
+            box21.classList.add('contains');
+        }
+        if (index === 1 && !box22.classList.contains('correct')) {
+            box22.classList.add('contains');
+        }
+        if (index === 2 && !box23.classList.contains('correct')) {
+            box23.classList.add('contains');
+        }
+        if (index === 3 && !box24.classList.contains('correct')) {
+            box24.classList.add('contains');
+        }
+        if (index === 4 && !box25.classList.contains('correct')) {
+            box25.classList.add('contains');
+        }
+    }
+    if (guesses === 6) {
+        if (index === 0 && !box26.classList.contains('correct')) {
+            box26.classList.add('contains');
+        }
+        if (index === 1 && !box27.classList.contains('correct')) {
+            box27.classList.add('contains');
+        }
+        if (index === 2 && !box28.classList.contains('correct')) {
+            box28.classList.add('contains');
+        }
+        if (index === 3 && !box29.classList.contains('correct')) {
+            box29.classList.add('contains');
+        }
+        if (index === 4 && !box30.classList.contains('correct')) {
+            box30.classList.add('contains');
+        }
+    }
 }
 
 function displayGreens(index) {
@@ -130,12 +235,102 @@ function displayGreens(index) {
             box5.classList.add('correct');
         }
     }
+    if (guesses === 2) {
+        if (index === 0) {
+            box6.classList.add('correct');
+        }
+        if (index === 1) {
+            box7.classList.add('correct');
+        }
+        if (index === 2) {
+            box8.classList.add('correct');
+        }
+        if (index === 3) {
+            box9.classList.add('correct');
+        }
+        if (index === 4) {
+            box10.classList.add('correct');
+        }
+    }
+    if (guesses === 3) {
+        if (index === 0) {
+            box11.classList.add('correct');
+        }
+        if (index === 1) {
+            box12.classList.add('correct');
+        }
+        if (index === 2) {
+            box13.classList.add('correct');
+        }
+        if (index === 3) {
+            box14.classList.add('correct');
+        }
+        if (index === 4) {
+            box15.classList.add('correct');
+        }
+    }
+    if (guesses === 4) {
+        if (index === 0) {
+            box16.classList.add('correct');
+        }
+        if (index === 1) {
+            box17.classList.add('correct');
+        }
+        if (index === 2) {
+            box18.classList.add('correct');
+        }
+        if (index === 3) {
+            box19.classList.add('correct');
+        }
+        if (index === 4) {
+            box20.classList.add('correct');
+        }
+    }
+    if (guesses === 5) {
+        if (index === 0) {
+            box21.classList.add('correct');
+        }
+        if (index === 1) {
+            box22.classList.add('correct');
+        }
+        if (index === 2) {
+            box23.classList.add('correct');
+        }
+        if (index === 3) {
+            box24.classList.add('correct');
+        }
+        if (index === 4) {
+            box25.classList.add('correct');
+        }
+    }
+    if (guesses === 6) {
+        if (index === 0) {
+            box26.classList.add('correct');
+        }
+        if (index === 1) {
+            box27.classList.add('correct');
+        }
+        if (index === 2) {
+            box28.classList.add('correct');
+        }
+        if (index === 3) {
+            box29.classList.add('correct');
+        }
+        if (index === 4) {
+            box30.classList.add('correct');
+        }
+    }
 }
 
 function appendGuess() {
     const guessInput = document.getElementById('guess-input').value.toUpperCase();
     const guessArray = guessInput.split('');
     const solutionArray = solution.split('');
+    if (guessArray.length !==5) {
+        alert('Please enter a 5 letter word.');
+        document.getElementById('guess-input').value = '';
+        return;
+    }
     guesses++;
     if (guesses === 1) {
         box1.innerText = guessArray[0];
