@@ -100,9 +100,36 @@ function checkGuess() {
     if (guessInput.value === solution) {
         winGame();
     }
-    // for (let i = 0; i < guessArray.length; i++) {
-    
-    // }
+    for (let i = 0; i < guessArray.length; i++) {
+        if(guessArray[i] === solutionArray[i]) {
+            displayGreens(i);
+        }
+    }
+}
+
+//Proof of concept for preventing green and yellow backgrounds from overlapping
+if (box1.classList.contains('card')) { 
+    console.log('It works')
+}
+
+function displayGreens(index) {
+    if (guesses === 1) {
+        if (index === 0) {
+            box1.classList.add('correct');
+        }
+        if (index === 1) {
+            box2.classList.add('correct');
+        }
+        if (index === 2) {
+            box3.classList.add('correct');
+        }
+        if (index === 3) {
+            box4.classList.add('correct');
+        }
+        if (index === 4) {
+            box5.classList.add('correct');
+        }
+    }
 }
 
 function appendGuess() {
