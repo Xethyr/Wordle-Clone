@@ -1,4 +1,4 @@
-import { WORDS } from "./words";
+import { WORDS } from "./words.js";
 const guessBtn = document.getElementById("guess-btn");
 const box1 = document.getElementById("letter-1");
 const box2 = document.getElementById("letter-2");
@@ -38,8 +38,8 @@ const row5 = document.querySelectorAll("row5");
 const row6 = document.querySelectorAll("row6");
 
 let guesses = 0;
-
-const solution = "saute";
+const randomSolution = WORDS[Math.floor(Math.random() * WORDS.length)];
+const solution = randomSolution;
 
 function winGame() {
   guessBtn.setAttribute("disabled", "");
@@ -106,7 +106,6 @@ function checkGuess() {
     }
   }
 }
-
 //Proof of concept for double letter protection
 // if (box3.innerText.includes('S')) {
 //     console.log('It works')
@@ -323,12 +322,19 @@ function displayGreens(index) {
 }
 
 function appendGuess() {
-  const guessInput = document.getElementById("guess-input").value.toUpperCase();
-  const guessArray = guessInput.split("");
+  const guessInput = document.getElementById("guess-input");
+  const guessInputUpper = document
+    .getElementById("guess-input")
+    .value.toUpperCase();
+  const guessArray = guessInputUpper.split("");
   const solutionArray = solution.split("");
   if (guessArray.length !== 5) {
     alert("Please enter a 5 letter word.");
     document.getElementById("guess-input").value = "";
+    return;
+  }
+  if (!WORDS.includes(guessInput.value)) {
+    alert("Not a valid word");
     return;
   }
   guesses++;
@@ -388,3 +394,5 @@ function appendGuess() {
     return;
   }
 }
+
+guessBtn.addEventListener("click", appendGuess);
