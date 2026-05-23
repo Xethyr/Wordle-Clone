@@ -90,7 +90,8 @@ function winGame() {
 function checkGuess() {
   const guessInput = document.getElementById("guess-input");
   const guessArray = guessInput.value.split("");
-  const solutionArray = solution.split("");
+  let tempSolution = solution;
+  const solutionArray = tempSolution.split("");
 
   if (guessInput.value === solution) {
     winGame();
@@ -98,18 +99,15 @@ function checkGuess() {
   for (let i = 0; i < guessArray.length; i++) {
     if (guessArray[i] === solutionArray[i]) {
       displayGreens(i);
+      solutionArray[i] = "";
     }
   }
   for (let i = 0; i < guessArray.length; i++) {
-    if (solution.includes(guessArray[i])) {
+    if (solutionArray.includes(guessArray[i])) {
       displayYellows(i);
     }
   }
 }
-//Proof of concept for double letter protection
-// if (box3.innerText.includes('S')) {
-//     console.log('It works')
-// }
 
 function displayYellows(index) {
   if (guesses === 1) {
